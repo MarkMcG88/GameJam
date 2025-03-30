@@ -160,19 +160,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
-radius = 22.0
-height = 136.0
+radius = 16.0
+height = 108.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(7, 12)
+position = Vector2(6, 27)
 scale = Vector2(0.237956, 0.237956)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"idle"
 speed_scale = 1.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 15)
+position = Vector2(2, 43)
 shape = SubResource("CapsuleShape2D_3vyb7")

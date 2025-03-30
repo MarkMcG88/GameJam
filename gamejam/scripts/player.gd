@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -400.0
 
 var can_move = true
 
@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# move_left and move_right are defined in Project settings > Input Map
 	var direction := Input.get_axis("move_left", "move_right")
-
+		
 	if is_on_floor():
 		# Changing animations
 		if direction == 0:
@@ -30,20 +30,12 @@ func _physics_process(delta: float) -> void:
 		elif direction != 0:
 			$AnimatedSprite2D.play("walking")
 			
-		# Flip sprite depending on direction
-		if direction > 0:
-			$AnimatedSprite2D.flip_h = false
-		elif direction < 0:
-			$AnimatedSprite2D.flip_h = true
+
 		
 		# Movement	
 		
 		
-		if direction:
-			print(velocity)
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)		
+
 
 	else:
 		if velocity.y < 0 and velocity.y > JUMP_VELOCITY:
@@ -51,6 +43,16 @@ func _physics_process(delta: float) -> void:
 		elif velocity.y > 0:
 			$AnimatedSprite2D.play("falling")
 
+	# Flip sprite depending on direction
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif direction < 0:
+		$AnimatedSprite2D.flip_h = true
+
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	print(velocity)
 
