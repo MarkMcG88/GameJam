@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv1qm2ihakv46"]
+
+[ext_resource type="AudioStream" uid="uid://rcm3xbumttgw" path="res://assets/audio/Retro Jump Classic 08.wav" id="1_smxiu"]
+
+[node name="AudioController" type="Node2D"]
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_smxiu")
+pitch_scale = 1.75
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
