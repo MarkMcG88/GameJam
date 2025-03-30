@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnmfh3jrdvr8g"]
+[gd_scene load_steps=15 format=3 uid="uid://bnmfh3jrdvr8g"]
 
 [ext_resource type="Texture2D" uid="uid://bgwal2ydp38ml" path="res://assets/test-assets/kenney_toon-characters-1/Female adventurer/Tilesheet/character_femaleAdventurer_sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://qoecqmpg7cit" path="res://scripts/player.gd" id="1_g2els"]
@@ -6,6 +6,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_4flbx")
 region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(96, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_4flbx")
@@ -51,6 +55,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
 }, {
 "duration": 1.0,
@@ -89,8 +101,7 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"walking"
-frame_progress = 0.625666
+animation = &"jumping"
 speed_scale = 1.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
