@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cjgno53bunyx3" path="res://assets/art assets/Rocks_assets/Two_small_Rocks_together_asset.png" id="5_kvuet"]
 [ext_resource type="Script" uid="uid://c4jd2bo8gprvb" path="res://scripts/checkpoint_manager.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://denjv13nvp03i" path="res://scenes/checkpoint.tscn" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://d0yo77wx1hqtk" path="res://scripts/audio_stream_player_2d.gd" id="9_kvpfn"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player_2d.gd" id="9_kvpfn"]
 
 [sub_resource type="GDScript" id="GDScript_lbhrr"]
 
