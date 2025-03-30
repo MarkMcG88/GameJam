@@ -1,7 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnmfh3jrdvr8g"]
+[gd_scene load_steps=27 format=3 uid="uid://bnmfh3jrdvr8g"]
 
 [ext_resource type="Texture2D" uid="uid://bgwal2ydp38ml" path="res://assets/test-assets/kenney_toon-characters-1/Female adventurer/Tilesheet/character_femaleAdventurer_sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://qoecqmpg7cit" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://7mn72803fahs" path="res://assets/art assets/Olive Sprites/Falling/Falling_Frame_1.png" id="2_jej6c"]
+[ext_resource type="Texture2D" uid="uid://q1dpgvsppnkp" path="res://assets/art assets/Olive Sprites/Falling/Falling_Frame_2.png" id="3_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://on8r5k7ff4ly" path="res://assets/art assets/Olive Sprites/Idle/Idle_Frame_1.png" id="4_oprun"]
+[ext_resource type="Texture2D" uid="uid://b2tupf4ct52mn" path="res://assets/art assets/Olive Sprites/Idle/Idle_Frame_2.png" id="5_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://d0j5hesimxxlq" path="res://assets/art assets/Olive Sprites/Jump/Jump_Frame_1.png" id="7_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://dlpv7047u0cud" path="res://assets/art assets/Olive Sprites/Jump/Jump_Frame_2.png" id="8_fulsm"]
+[ext_resource type="Texture2D" uid="uid://cyj4p1ad5hj6p" path="res://assets/art assets/Olive Sprites/Jump/Jump_Frame_3.png" id="9_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://b1c8w056xb8l7" path="res://assets/art assets/Olive Sprites/Walking_Running/Walking_Frame_1.png" id="10_60mlk"]
+[ext_resource type="Texture2D" uid="uid://b63uwty6v62yw" path="res://assets/art assets/Olive Sprites/Walking_Running/Walking_Frame_2.png" id="11_i4ail"]
+[ext_resource type="Texture2D" uid="uid://slsvdmwo6735" path="res://assets/art assets/Olive Sprites/Walking_Running/Walking_Frame_3.png" id="12_a38lo"]
+[ext_resource type="Texture2D" uid="uid://bycmyp48ahq6m" path="res://assets/art assets/Olive Sprites/Walking_Running/Walking_Frame_4.png" id="13_4ni07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("4_oprun")
+region = Rect2(0, 0, 554, 710)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_4flbx")
@@ -47,7 +62,21 @@ region = Rect2(672, 512, 96, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3vyb7")
+"texture": ExtResource("2_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1ej7")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8ls1")
 }],
 "loop": true,
 "name": &"idle",
@@ -55,11 +84,50 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
+"texture": SubResource("AtlasTexture_3vyb7")
+}],
+"loop": true,
+"name": &"idle_old",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4r5pv")
 }],
 "loop": true,
 "name": &"jumping",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"jumping_old",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_60mlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i4ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_a38lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4ni07")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,35 +155,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_ur7pv")
 }],
 "loop": true,
-"name": &"walking",
+"name": &"walking_old",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
-radius = 13.0
-height = 56.0
+radius = 22.0
+height = 136.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 15.0
-height = 56.0
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
+position = Vector2(7, 12)
+scale = Vector2(0.237956, 0.237956)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"jumping"
+animation = &"idle"
 speed_scale = 1.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(5, 15)
 shape = SubResource("CapsuleShape2D_3vyb7")
-
-[node name="DialogInteractionArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogInteractionArea"]
-position = Vector2(-1, 10)
-shape = SubResource("CapsuleShape2D_g2els")

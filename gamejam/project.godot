@@ -15,6 +15,18 @@ run/main_scene="uid://buf3dy71yvsdv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*res://scripts/signalbus.gd"
+
+[filesystem]
+
+import/layer_2="Dialogue"
+
+[global_group]
+
+player=""
+
 [input]
 
 move_left={

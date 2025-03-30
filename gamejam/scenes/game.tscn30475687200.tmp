@@ -70,6 +70,7 @@ texture_region_size = Vector2i(18, 18)
 1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
@@ -144,15 +145,12 @@ normal = Vector2(-0.999742, 0.0227214)
 distance = 13.9889
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
-size = Vector2(275, 76)
+size = Vector2(275, 146.5)
 
 [node name="Game" type="Node2D"]
 script = SubResource("GDScript_lbhrr")
 metadata/_edit_vertical_guides_ = [1244.0, -540.0]
 metadata/_edit_horizontal_guides_ = [-300.0, 331.0]
-
-[node name="CheckpointManager" type="Node" parent="."]
-script = ExtResource("5_p57ef")
 
 [node name="Blue BG" type="ColorRect" parent="."]
 offset_left = -823.866
@@ -197,7 +195,7 @@ shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 99
-position = Vector2(-17, 44)
+position = Vector2(-337, 87)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(144, -79)
@@ -222,11 +220,14 @@ scale = Vector2(18.5715, 4.76791)
 script = ExtResource("4_iywne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(650, 352)
+position = Vector2(650, 316.75)
 shape = SubResource("RectangleShape2D_u5sy4")
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_p57ef")]
-position = Vector2(255, 142)
+position = Vector2(380, 107)
+
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("5_p57ef")
 
 [connection signal="body_entered" from="Deathzone" to="Deathzone" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="Deathzone" to="Deathzone" method="_on_body_shape_entered"]

@@ -5,13 +5,6 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -350.0
 
 var can_move = true
-	
-func disable_movement():
-	can_move = false
-	velocity = Vector2.ZERO  # Stop player
-
-func enable_movement():
-	can_move = true
 
 func _physics_process(delta: float) -> void:
 		
@@ -44,12 +37,21 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		
 		# Movement	
+		
+		
 		if direction:
+			print(velocity)
 			velocity.x = direction * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
+			velocity.x = move_toward(velocity.x, 0, SPEED)		
+
 	else:
-		$AnimatedSprite2D.play("jumping")
+		if velocity.y < 0 and velocity.y > JUMP_VELOCITY:
+			$AnimatedSprite2D.play("jumping")
+		elif velocity.y > 0:
+			$AnimatedSprite2D.play("falling")
+
 		
+	print(velocity)
+
 	move_and_slide()
