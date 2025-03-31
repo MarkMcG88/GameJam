@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+signal bones_updated(bones: Array)
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
+
+var collected_bones: Array = []  # Stores {name, sprite} for each bone
+
+var bones_collected = []
 
 var can_move = true
 
@@ -30,14 +35,6 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("idle")
 		elif direction != 0:
 			$AnimatedSprite2D.play("walking")
-			
-
-		
-		# Movement	
-		
-		
-
-
 	else:
 		if velocity.y < 0 and velocity.y > JUMP_VELOCITY:
 			$AnimatedSprite2D.play("jumping")
@@ -56,3 +53,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
+
+
+func boneCollected(bone_name: String) -> void:
+	bones_collected.append(bone_name)
+	print(bones_collected)
+
+func collect_bone(bone_name: String, bone_sprite: Texture):
+	if not collected_bones.any(func(b): return b.name == bone_name):  # Prevent duplicates
+		collected_bones.append({"name": bone_name, "sprite": bone_sprite})
+		emit_signal("bones_updated", collected_bones)  # Notify UI to update

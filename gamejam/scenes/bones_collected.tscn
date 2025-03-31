@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bionaqsjkkekq"]
+
+[ext_resource type="Script" uid="uid://b2crvxhc7n38b" path="res://scripts/bones_collected.gd" id="1_6fmcq"]
+
+[node name="BonesCollected" type="Node2D"]
+script = ExtResource("1_6fmcq")
