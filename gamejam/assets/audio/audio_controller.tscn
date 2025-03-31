@@ -3,18 +3,26 @@
 [ext_resource type="Script" uid="uid://d0wq3bnmphknb" path="res://assets/audio/audio_controller.gd" id="1_cpgmo"]
 [ext_resource type="AudioStream" uid="uid://rcm3xbumttgw" path="res://assets/audio/Retro Jump Classic 08.wav" id="1_smxiu"]
 [ext_resource type="AudioStream" uid="uid://blyywrvlndswx" path="res://assets/audio/kilimanjaro-calling-andrey-rossi-main-version-30991-01-06.mp3" id="2_18svn"]
-[ext_resource type="AudioStream" uid="uid://cmken2jyue1pd" path="res://assets/audio/Retro Negative Short 23.wav" id="4_85snb"]
+[ext_resource type="AudioStream" uid="uid://drgk64y0rocrw" path="res://assets/audio/Retro Descending Short 20.wav" id="4_18svn"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_cpgmo")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_18svn")
+volume_db = -37.334
 autoplay = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_smxiu")
-pitch_scale = 1.75
+volume_db = -20.667
+pitch_scale = 1.49
 
 [node name="Falling" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_85snb")
+stream = ExtResource("4_18svn")
+volume_db = -17.714
+pitch_scale = 1.2
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+
+[node name="Enemy" type="AudioStreamPlayer" parent="."]
