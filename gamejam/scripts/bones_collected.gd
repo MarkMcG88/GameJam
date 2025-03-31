@@ -19,3 +19,6 @@ func update_bones_list(bones: Array):
 		add_child(sprite)
 		
 		print(get_children())
+		
+	if bones.size() == 5:
+		$AudioStreamPlayer2D.play()
