@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dadujtybqv6bh"]
 
+[ext_resource type="Script" uid="uid://d2fiundr6kir8" path="res://scripts/enemy.gd" id="1_mcw2v"]
 [ext_resource type="Texture2D" uid="uid://bgf26eyrkmfqf" path="res://assets/art assets/Scorpions_Sprite_frames/scorpion_Frame_1.png.png" id="1_uytbs"]
-[ext_resource type="Script" uid="uid://dviedbbxo2qmc" path="res://scripts/scorpion.gd" id="1_wes4n"]
+[ext_resource type="PackedScene" uid="uid://5rkvem0ia8i6" path="res://scenes/deathzone.tscn" id="3_mcw2v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uytbs"]
 animations = [{
@@ -14,15 +15,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uytbs"]
-radius = 61.0737
-
-[node name="Scorpion" type="CharacterBody2D"]
-script = ExtResource("1_wes4n")
+[node name="Scorpion" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_mcw2v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.25, 0)
+scale = Vector2(0.988889, 1)
 sprite_frames = SubResource("SpriteFrames_uytbs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 10)
-shape = SubResource("CircleShape2D_uytbs")
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+z_index = 10
+target_position = Vector2(-90, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(106.667, 0)
+
+[node name="Deathzone" parent="." instance=ExtResource("3_mcw2v")]
+visible = false
+position = Vector2(10, 10)
+scale = Vector2(0.495, 0.855)
