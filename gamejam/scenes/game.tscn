@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dadujtybqv6bh" path="res://scenes/scorpion.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://5rkvem0ia8i6" path="res://scenes/deathzone.tscn" id="12_kvuet"]
 [ext_resource type="Texture2D" uid="uid://c2ey4tjydk003" path="res://assets/art assets/Bones_inventory_icon_assets/Body_bone_inventory_icon_asset.png" id="14_trtic"]
-[ext_resource type="PackedScene" path="res://scenes/bone.tscn" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://di7qb0qt0y837" path="res://scenes/bone.tscn" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://dr7ykcdpnhsb2" path="res://assets/art assets/Bones_inventory_icon_assets/Tail_bone_inventory_icon_asset.png" id="21_e1j6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtaks"]
@@ -566,7 +566,7 @@ shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 99
-position = Vector2(-120, 29)
+position = Vector2(1136, 1229)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(149, -49)

@@ -15,6 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body.collect_bone(bone_name, bone_sprite)
 	if $Sprite2D != null:
 		$Sprite2D.queue_free()
+	if $CollisionShape2D != null:
+		$CollisionShape2D.queue_free()
 	#
 #func testprint():
 	#var bone_name = get_meta("name")  # This should retrieve the string set in the Inspector
