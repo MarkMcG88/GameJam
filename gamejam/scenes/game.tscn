@@ -566,7 +566,7 @@ shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 99
-position = Vector2(1136, 1229)
+position = Vector2(-39, 20)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(149, -49)
