@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg1r2ykov7tos"]
+
+[ext_resource type="PackedScene" uid="uid://bsaqgsv52ta5d" path="res://scenes/bones_collected.tscn" id="2_v2w2e"]
+
+[node name="Hud" type="CanvasLayer"]
+layer = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="BonesCollected" parent="Control" instance=ExtResource("2_v2w2e")]
+position = Vector2(-40, 0)

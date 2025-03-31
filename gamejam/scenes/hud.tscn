@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs4y28b0l1ui1"]
+
+[ext_resource type="PackedScene" uid="uid://bsaqgsv52ta5d" path="res://scenes/bones_collected.tscn" id="1_ahhtf"]
+
+[node name="Control" type="Control"]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="BonesCollected" parent="Control" instance=ExtResource("1_ahhtf")]
+position = Vector2(503, 255)
+
+[editable path="Control/BonesCollected"]
