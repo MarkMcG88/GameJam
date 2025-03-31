@@ -16,3 +16,7 @@ func play_jump() -> void:
 	if not mute:
 		$Jump.play()
 	
+
+func play_falling() -> void:
+	if not mute:
+		$Falling.play()
