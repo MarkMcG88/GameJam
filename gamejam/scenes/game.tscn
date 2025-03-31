@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://buf3dy71yvsdv"]
+[gd_scene load_steps=35 format=4 uid="uid://buf3dy71yvsdv"]
 
 [ext_resource type="Script" uid="uid://dhj0ajknekwq7" path="res://scripts/game.gd" id="1_ca42v"]
 [ext_resource type="PackedScene" uid="uid://bnmfh3jrdvr8g" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -12,13 +12,12 @@
 [ext_resource type="Script" uid="uid://c4jd2bo8gprvb" path="res://scripts/checkpoint_manager.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://denjv13nvp03i" path="res://scenes/checkpoint.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://d0yo77wx1hqtk" path="res://scripts/audio_stream_player_2d.gd" id="9_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://bionaqsjkkekq" path="res://scenes/bones_collected.tscn" id="11_rysoc"]
+[ext_resource type="PackedScene" uid="uid://bsaqgsv52ta5d" path="res://scenes/bones_collected.tscn" id="11_rysoc"]
 [ext_resource type="PackedScene" uid="uid://dadujtybqv6bh" path="res://scenes/scorpion.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://5rkvem0ia8i6" path="res://scenes/deathzone.tscn" id="12_kvuet"]
-[ext_resource type="Texture2D" uid="uid://crvmfurdp5mfw" path="res://assets/art assets/Bones_inventory_icon_assets/Body_bone_inventory_icon_asset.png" id="14_trtic"]
-[ext_resource type="PackedScene" uid="uid://c0le7yxcimg2r" path="res://scenes/bone.tscn" id="15_ir15t"]
-[ext_resource type="Script" uid="uid://bxql8v3a647ub" path="res://scripts/canvas_layer.gd" id="18_264po"]
-[ext_resource type="Texture2D" uid="uid://crilx6xqpv55k" path="res://assets/art assets/Bones_inventory_icon_assets/Tail_bone_inventory_icon_asset.png" id="21_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://c2ey4tjydk003" path="res://assets/art assets/Bones_inventory_icon_assets/Body_bone_inventory_icon_asset.png" id="14_trtic"]
+[ext_resource type="PackedScene" path="res://scenes/bone.tscn" id="15_ir15t"]
+[ext_resource type="Texture2D" uid="uid://dr7ykcdpnhsb2" path="res://assets/art assets/Bones_inventory_icon_assets/Tail_bone_inventory_icon_asset.png" id="21_e1j6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtaks"]
 texture = ExtResource("2_vtaks")
@@ -634,24 +633,6 @@ texture = ExtResource("21_e1j6l")
 [node name="BonesCollected" parent="." instance=ExtResource("11_rysoc")]
 z_index = 10
 position = Vector2(1926, 346)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-follow_viewport_enabled = true
-script = ExtResource("18_264po")
-
-[node name="BoneControl" type="Control" parent="CanvasLayer"]
-z_index = 10
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -15.0
-offset_right = 25.0
-offset_bottom = 40.0
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/BoneControl"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("14_trtic")
 
 [connection signal="finished" from="Player/Camera2D/GameMusic" to="Player/Camera2D/GameMusic" method="_on_finished"]
 [connection signal="body_entered" from="dz" to="dz" method="_on_body_entered"]
