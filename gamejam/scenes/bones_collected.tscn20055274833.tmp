@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsaqgsv52ta5d"]
+
+[ext_resource type="Script" uid="uid://b2crvxhc7n38b" path="res://scripts/bones_collected.gd" id="1_6fmcq"]
+[ext_resource type="AudioStream" uid="uid://do1pku7a7cpm6" path="res://assets/audio/level-up-retro-video-game-soundroll-1-00-02.mp3" id="2_ks7dm"]
+
+[node name="BonesCollected" type="Node2D"]
+script = ExtResource("1_6fmcq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ks7dm")
+
+[node name="GameCompleteTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="GameCompleteTimer" to="." method="_on_game_complete_timer_timeout"]

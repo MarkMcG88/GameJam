@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv1qm2ihakv46"]
+[gd_scene load_steps=7 format=3 uid="uid://dv1qm2ihakv46"]
 
 [ext_resource type="Script" uid="uid://d0wq3bnmphknb" path="res://assets/audio/audio_controller.gd" id="1_cpgmo"]
 [ext_resource type="AudioStream" uid="uid://rcm3xbumttgw" path="res://assets/audio/Retro Jump Classic 08.wav" id="1_smxiu"]
 [ext_resource type="AudioStream" uid="uid://blyywrvlndswx" path="res://assets/audio/kilimanjaro-calling-andrey-rossi-main-version-30991-01-06.mp3" id="2_18svn"]
 [ext_resource type="AudioStream" uid="uid://drgk64y0rocrw" path="res://assets/audio/Retro Descending Short 20.wav" id="4_18svn"]
+[ext_resource type="AudioStream" uid="uid://b74jk1125gimy" path="res://assets/audio/puff-of-magic-treasure-chest-heavy-smartsound-fx-1-00-04.mp3" id="5_85snb"]
+[ext_resource type="AudioStream" uid="uid://do1pku7a7cpm6" path="res://assets/audio/level-up-retro-video-game-soundroll-1-00-02.mp3" id="6_2p1ps"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_cpgmo")
@@ -24,5 +26,13 @@ volume_db = -17.714
 pitch_scale = 1.2
 
 [node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_85snb")
+volume_db = -15.0
 
 [node name="Enemy" type="AudioStreamPlayer" parent="."]
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2p1ps")
+volume_db = -15.0
+
+[connection signal="finished" from="PickUp" to="." method="_on_pick_up_finished"]

@@ -4,11 +4,9 @@ func update_bones_list(bones: Array):
 
 	for child in get_children():
 		child.queue_free()
-		
+				
 	var x_offset = 0 
-	
-	print("update bones")
-	
+		
 	for bone in bones:
 		var sprite = TextureRect.new()
 		sprite.texture = bone.sprite
@@ -18,7 +16,10 @@ func update_bones_list(bones: Array):
 		x_offset -= 80 
 		add_child(sprite)
 		
-		print(get_children())
 		
 	if bones.size() == 5:
-		$AudioStreamPlayer2D.play()
+		AudioController.stop_pickup()
+		AudioController.play_victory()
+
+func _on_game_complete_timer_timeout() -> void:
+	AudioController.play_victory()

@@ -28,14 +28,12 @@ func _physics_process(delta: float) -> void:
 	
 func _on_trigger_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("player detected")
 		is_falling = true
 		timer.start()
 
 
 func _on_killbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("player hit")
 		timer.stop()
 		position = startPosition
 		is_falling = false
@@ -48,5 +46,4 @@ func killPlayer():
 
 
 func _on_self_destruct_timer_timeout() -> void:
-	print("rock destroyed")
 	queue_free()

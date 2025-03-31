@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg1r2ykov7tos"]
+[gd_scene load_steps=3 format=3 uid="uid://dg1r2ykov7tos"]
 
+[ext_resource type="Script" uid="uid://vba34b47gsgm" path="res://scripts/bones_left_label.gd" id="2_fqd1q"]
 [ext_resource type="PackedScene" uid="uid://bsaqgsv52ta5d" path="res://scenes/bones_collected.tscn" id="2_v2w2e"]
 
 [node name="Hud" type="CanvasLayer"]
@@ -15,4 +16,15 @@ offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="BonesCollected" parent="Control" instance=ExtResource("2_v2w2e")]
-position = Vector2(-40, 0)
+position = Vector2(-40, 30)
+
+[node name="BonesLeftLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -95.0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Bones Left: 5"
+script = ExtResource("2_fqd1q")

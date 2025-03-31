@@ -13,7 +13,6 @@ func _ready() -> void:
 		player = get_parent().get_parent().get_node("Player")
 
 func _on_body_entered(body: Node2D) -> void:
-	print("body enter")
 	if body.is_in_group("player"):
 		AudioController.play_falling()
 		killPlayer()

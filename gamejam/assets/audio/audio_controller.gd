@@ -20,3 +20,18 @@ func play_jump() -> void:
 func play_falling() -> void:
 	if not mute:
 		$Falling.play()
+		
+
+func play_pickup() -> void:
+	if not mute:
+		$PickUp.play()
+		
+func stop_pickup() -> void:
+	if not mute:
+		$PickUp.stop()
+		
+		
+func play_victory() -> void:
+	if not mute:
+		$Victory.play()
+		
