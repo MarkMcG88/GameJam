@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3kwonewhnwhh"]
+
+[ext_resource type="Texture2D" uid="uid://es44y5sdhxrw" path="res://assets/test-assets/kenney_pixel-platformer-farm-expansion/Tilemap/tilemap_packed.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
+size = Vector2(108, 38)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(18, 0, 54, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlgqw")
+one_way_collision = true
