@@ -85,5 +85,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ukcvp")
 text = "QUIT"
 
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_quit_pressed"]
