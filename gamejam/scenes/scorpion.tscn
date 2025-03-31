@@ -1,28 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://dadujtybqv6bh"]
+[gd_scene load_steps=9 format=3 uid="uid://dpkuel5vqrgen"]
 
-[ext_resource type="Texture2D" uid="uid://bgf26eyrkmfqf" path="res://assets/art assets/Scorpions_Sprite_frames/scorpion_Frame_1.png.png" id="1_uytbs"]
-[ext_resource type="Script" uid="uid://dviedbbxo2qmc" path="res://scripts/scorpion.gd" id="1_wes4n"]
+[ext_resource type="Texture2D" uid="uid://blqj821ieor1b" path="res://AssetsTest/scorpion_Frame_1.png.png" id="1_rqdgh"]
+[ext_resource type="Script" uid="uid://d2fiundr6kir8" path="res://Scripts/enemy.gd" id="1_x875y"]
+[ext_resource type="Texture2D" uid="uid://b7bt6pds1jsys" path="res://AssetsTest/scorpion_Frame_2.png" id="2_4283j"]
+[ext_resource type="PackedScene" uid="uid://dxxqtmefdquic" path="res://ScenesTest/killzone.tscn" id="3_4283j"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uytbs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x875y"]
+atlas = ExtResource("1_rqdgh")
+region = Rect2(0, 0, 225, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8d8n"]
+atlas = ExtResource("2_4283j")
+region = Rect2(0, 0, 225, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0hw5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uytbs")
+"texture": SubResource("AtlasTexture_x875y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8d8n")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uytbs"]
-radius = 61.0737
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuvat"]
+size = Vector2(132.25, 107)
 
-[node name="Scorpion" type="CharacterBody2D"]
-script = ExtResource("1_wes4n")
+[node name="Scorpion" type="Node2D"]
+position = Vector2(-27, -33)
+script = ExtResource("1_x875y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_uytbs")
+position = Vector2(15, -2)
+sprite_frames = SubResource("SpriteFrames_r0hw5")
+autoplay = "default"
+frame = 1
+frame_progress = 0.509414
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 10)
-shape = SubResource("CircleShape2D_uytbs")
+[node name="Killzone" parent="." instance=ExtResource("3_4283j")]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(37.875, 4.5)
+shape = SubResource("RectangleShape2D_fuvat")
+
+[node name="RayCastRight" type="RayCast2D" parent="Killzone/CollisionShape2D"]
+position = Vector2(6.125, 4.5)
+target_position = Vector2(79, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="Killzone/CollisionShape2D"]
+position = Vector2(4.125, 4.5)
+target_position = Vector2(-70, 2)
