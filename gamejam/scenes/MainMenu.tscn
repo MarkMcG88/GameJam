@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcmut7mi3m5c1"]
+[gd_scene load_steps=6 format=3 uid="uid://dcmut7mi3m5c1"]
 
 [ext_resource type="Script" uid="uid://bkemton55ewnt" path="res://scenes/main_menu.gd" id="1_0ykhv"]
-[ext_resource type="FontFile" uid="uid://b728gng20cqyj" path="res://assets/font/Hello Sweet Rain.ttf" id="2_2wh52"]
+[ext_resource type="Texture2D" uid="uid://bn2ypjschnua2" path="res://assets/art assets/Backdrop_for_game_Title.png" id="2_2wh52"]
+[ext_resource type="Texture2D" uid="uid://yy44qg07mkdo" path="res://assets/art assets/Title_of_Game_asset.png" id="3_ow34m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow34m"]
-bg_color = Color(0.779349, 0.559652, 0.271072, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l72w3"]
+texture = ExtResource("2_2wh52")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukcvp"]
 bg_color = Color(0.839614, 0.505904, 0.268474, 1)
@@ -26,27 +27,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ow34m")
+theme_override_styles/panel = SubResource("StyleBoxTexture_l72w3")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -198.0
-offset_right = 38.5
-offset_bottom = -175.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("2_2wh52")
-theme_override_font_sizes/font_size = 100
-text = "TITLE TBD"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 35.0
+offset_right = 1062.0
+offset_bottom = 371.0
+texture = ExtResource("3_ow34m")
+expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -55,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = -10.5
-offset_right = 147.5
-offset_bottom = 88.5
+offset_left = -124.0
+offset_top = 25.0
+offset_right = 143.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.6, 0, 1)
@@ -73,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = 112.0
-offset_right = 147.5
-offset_bottom = 211.0
+offset_left = -123.0
+offset_top = 152.0
+offset_right = 142.0
+offset_bottom = 241.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.6, 0, 1)
