@@ -18,8 +18,10 @@ func update_bones_list(bones: Array):
 		
 		
 	if bones.size() == 5:
-		AudioController.stop_pickup()
-		AudioController.play_victory()
+		AudioController.stop_pickup()		
+		var endFrame = get_parent().get_node("EndFrame")
+		endFrame.Show()
+		
 
 func _on_game_complete_timer_timeout() -> void:
 	AudioController.play_victory()

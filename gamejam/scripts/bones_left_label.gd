@@ -5,5 +5,5 @@ func update_bones_list(bones: Array):
 	if bones_left > 0:
 		text = "Bones Left: %d" % bones_left
 	else:
-		text = "Congratulations!!"
+		text = ""
 	
