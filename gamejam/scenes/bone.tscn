@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0le7yxcimg2r"]
+
+[ext_resource type="Script" uid="uid://c0s6n8y2yw7tp" path="res://scripts/bone.gd" id="1_f60gj"]
+[ext_resource type="Texture2D" uid="uid://crvmfurdp5mfw" path="res://assets/art assets/Bones_inventory_icon_assets/Body_bone_inventory_icon_asset.png" id="1_mm6ww"]
+[ext_resource type="AudioStream" uid="uid://b74jk1125gimy" path="res://assets/audio/puff-of-magic-treasure-chest-heavy-smartsound-fx-1-00-04.mp3" id="3_kq1tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f60gj"]
+size = Vector2(60.1173, 54.4847)
+
+[sub_resource type="Animation" id="Animation_mm6ww"]
+resource_name = "bounce"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_f60gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kq1tw"]
+_data = {
+&"RESET": SubResource("Animation_f60gj"),
+&"bounce": SubResource("Animation_mm6ww")
+}
+
+[node name="Bone" type="Area2D"]
+script = ExtResource("1_f60gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_mm6ww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f60gj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kq1tw")
+}
+autoplay = "bounce"
+speed_scale = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kq1tw")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
