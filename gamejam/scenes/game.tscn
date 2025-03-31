@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://o6r55dm65qit" path="res://assets/art assets/Rocks_assets/Two_small_Rocks_together_asset.png" id="5_kvuet"]
 [ext_resource type="Script" uid="uid://c4jd2bo8gprvb" path="res://scripts/checkpoint_manager.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://denjv13nvp03i" path="res://scenes/checkpoint.tscn" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://d0yo77wx1hqtk" path="res://scripts/audio_stream_player_2d.gd" id="9_kvpfn"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player_2d.gd" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bsaqgsv52ta5d" path="res://scenes/bones_collected.tscn" id="11_rysoc"]
 [ext_resource type="PackedScene" uid="uid://dadujtybqv6bh" path="res://scenes/scorpion.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://5rkvem0ia8i6" path="res://scenes/deathzone.tscn" id="12_kvuet"]
